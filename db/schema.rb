@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_21_085117) do
+ActiveRecord::Schema.define(version: 2019_10_01_075238) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -86,6 +86,15 @@ ActiveRecord::Schema.define(version: 2019_09_21_085117) do
     t.index ["eligible"], name: "index_spree_adjustments_on_eligible"
     t.index ["order_id"], name: "index_spree_adjustments_on_order_id"
     t.index ["source_id", "source_type"], name: "index_spree_adjustments_on_source_id_and_source_type"
+  end
+
+  create_table "spree_amazon_imports", force: :cascade do |t|
+    t.string "attachment_file_name"
+    t.integer "attachment_file_size"
+    t.string "attachment_content_type"
+    t.datetime "attachment_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "spree_assets", force: :cascade do |t|
@@ -473,6 +482,8 @@ ActiveRecord::Schema.define(version: 2019_09_21_085117) do
     t.boolean "promotionable", default: true
     t.string "meta_title"
     t.datetime "discontinue_on"
+    t.string "amazon_id"
+    t.index ["amazon_id"], name: "index_spree_products_on_amazon_id"
     t.index ["available_on"], name: "index_spree_products_on_available_on"
     t.index ["deleted_at"], name: "index_spree_products_on_deleted_at"
     t.index ["discontinue_on"], name: "index_spree_products_on_discontinue_on"

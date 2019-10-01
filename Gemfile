@@ -10,8 +10,9 @@ gem 'sqlite3'
 # Use Puma as the app server
 
 gem 'spree', '~> 3.7'
-gem 'spree_auth_devise', '~> 3.5'
+gem 'spree_auth_devise', '~> 3.5' #https://github.com/ecielam/spree_amazon_affiliate
 gem 'spree_gateway', '~> 3.4'
+gem 'spree_amazon_affiliate', :git => 'git://github.com/lokendrarawat97/spree_amazon_affiliate'
 
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
